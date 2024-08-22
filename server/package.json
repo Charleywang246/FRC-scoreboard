@@ -5,6 +5,7 @@
     "toml": "^3.0.0"
   },
   "scripts": {
+    "start": "echo Hello",
     "build": "node index.js"
   }
 }
