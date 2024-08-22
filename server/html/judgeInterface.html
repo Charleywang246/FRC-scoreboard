@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../style/judgeInterface.css">
+</head>
+<body>
+    <p>blue score controller</p>
+    <div class="buttonset" id="bluebtn">
+        <input type="button" value="+" id="blueplus">
+        <input type="button" value="-" id="blueminus">
+    </div>
+    <p>red score controller</p>
+    <div class="buttonset" id="redbtn">
+        <input type="button" value="+" id="redplus">
+        <input type="button" value="-" id="redminus">
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        socket = io();
+        const blueplus = document.getElementById("blueplus");
+        const blueminus = document.getElementById("blueminus");
+        const redplus = document.getElementById("redplus");
+        const redminus = document.getElementById("redminus")
+        blueplus.addEventListener("click", () => {socket.emit("blueplus");});
+        blueminus.addEventListener("click", () => {socket.emit("blueminus");});
+        redplus.addEventListener("click", () => {socket.emit("redplus");});
+        redminus.addEventListener("click", () => {socket.emit("redminus");});
+    </script>   
+</body>
+</html>

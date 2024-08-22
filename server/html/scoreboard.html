@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../style/scoreboard.css">
+</head>
+<body>
+    <div id="scoreboard">
+        <p id="bluescore">0</p>
+        <p id="redscore">-1</p>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const bluescore = document.getElementById("bluescore");
+        const redscore = document.getElementById("redscore");
+        const socket = io();
+        const add = (e) => {
+            e.innerText = Number(e.innerText) + 1;
+        }
+        const minus = (e) => {
+            e.innerText = Number(e.innerText) - 1;
+        }
+        socket.on("blueplus", () => {add(bluescore)});
+        socket.on("blueminus", () => {minus(bluescore)});
+        socket.on("redplus", () => {add(redscore)});
+        socket.on("redminus", () => {minus(redscore)});
+    </script>
+</body>
+</html>
