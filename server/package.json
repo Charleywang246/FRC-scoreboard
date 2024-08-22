@@ -3,5 +3,8 @@
     "express": "^4.19.2",
     "socket.io": "^4.7.5",
     "toml": "^3.0.0"
+  },
+  "scripts": {
+    "run": "node index.js"
   }
 }
